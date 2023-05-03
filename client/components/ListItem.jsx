@@ -1,44 +1,52 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function ListItem({ monster }) {
+export default function ListItem( props) {
+  const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, currLegRes, onDetailsRequested } = props
+
+  const handleClick = (event) => {
+    event.preventDefault()
+    onDetailsRequested(id)
+  }
+
   const [reaction, setReaction] = React.useState("")
   React.useEffect(() => {
-    if (monster.reaction) {
+    if (reaction) {
       setReaction("Available")
     } else {
       setReaction("Used")
     }
-  }, [monster.reaction])
+  }, [reaction])
 
   return (
-    <li className="list-group">
+    <li className="list-group" onClick={handleClick}>
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title">{monster.name}</h5>
+          <h5 className="card-title">{name}</h5>
           <div className="container">
             <div className="row">
               <div className="col-3">
                 <p className="card-subtitle mb-2">Health and AC</p>
                 <p className="card-text">
-                  {`HP: ${monster.currHp}/${monster.maxHp}`}<br />
-                  {`Temp HP: ${monster.tempHp}`}<br />
-                  {`AC: ${monster.ac}`}
+                  {`HP: ${currHp}/${maxHp}`}<br />
+                  {`Temp HP: ${tempHp}`}<br />
+                  {`AC: ${ac}`}
                 </p>
               </div>
               <div className="col-3">
                 <p className="card-subtitle mb-2">Saves</p>
                 <p className="card-text">
-                  {`STR: ${monster.strSave} DEX: ${monster.dexSave}`}<br />
-                  {`CON: ${monster.conSave} INT: ${monster.intSave}`}<br />
-                  {`WIS: ${monster.wisSave} CHA: ${monster.chaSave}`}
+                  {`STR: ${strSave} DEX: ${dexSave}`}<br />
+                  {`CON: ${conSave} INT: ${intSave}`}<br />
+                  {`WIS: ${wisSave} CHA: ${chaSave}`}
                 </p>
               </div>
               <div className="col-6">
                 <p className="card-subtitle mb-2">Limited Abilities</p>
                 <p className="card-text">
                   {`Reaction: ${reaction}`}<br />
-                  {`Legendary Actions: ${monster.currLegAct}`}<br />
-                  {`Legendary Resistances: ${monster.currLegRes}`}<br />
+                  {`Legendary Actions: ${currLegAct}`}<br />
+                  {`Legendary Resistances: ${currLegRes}`}<br />
                 </p>
               </div>
             </div>
@@ -49,3 +57,10 @@ export default function ListItem({ monster }) {
   )
 }
 
+ListItem.propTypes = {
+  onDetailsRequested: PropTypes.func
+}
+
+ListItem.defaultProps = {
+  onDetailsRequested: () => { }
+}
