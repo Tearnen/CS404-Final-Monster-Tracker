@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Bandit",
+    "currHp": 10,
+    "maxHp": 10,
+    "tempHp": 0,
+    "currLegAct": 0,
+    "maxLegAct": 0,
+    "currLegRes": 0,
+    "maxLegRes": 0,
+    "hasReacharge": false,
+    "reacharge": false,
+    "reaction": true
+  },
+  {
+    "id": 2,
+    "name": "Purple Worm",
+    "currHp": 250,
+    "maxHp": 250,
+    "tempHp": 0,
+    "currLegAct": 0,
+    "maxLegAct": 0,
+    "currLegRes": 0,
+    "maxLegRes": 0,
+    "hasReacharge": false,
+    "reacharge": false,
+    "reaction": true
+  },
+  {
+    "id": 3,
+    "name": "Chromatic Greatwyrm",
+    "currHp": 777,
+    "maxHp": 777,
+    "tempHp": 0,
+    "currLegAct": 3,
+    "maxLegAct": 3,
+    "currLegRes": 4,
+    "maxLegRes": 4,
+    "hasReacharge": true,
+    "reacharge": true,
+    "reaction": true
+  },
+  {
+    "id": 4,
+    "name": "Tarrasque",
+    "currHp": 676,
+    "maxHp": 676,
+    "tempHp": 0,
+    "currLegAct": 3,
+    "maxLegAct": 3,
+    "currLegRes": 3,
+    "maxLegRes": 3,
+    "hasReacharge": false,
+    "reacharge": false,
+    "reaction": true
+  }
+]
