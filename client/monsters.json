@@ -5,13 +5,20 @@
     "currHp": 10,
     "maxHp": 10,
     "tempHp": 0,
+    "ac": 12,
     "currLegAct": 0,
     "maxLegAct": 0,
     "currLegRes": 0,
     "maxLegRes": 0,
     "hasReacharge": false,
     "reacharge": false,
-    "reaction": true
+    "reaction": true,
+    "strSave": 0,
+    "dexSave": 1,
+    "conSave": 1,
+    "intSave": 0,
+    "wisSave": 0,
+    "chaSave": 0
   },
   {
     "id": 2,
@@ -19,13 +26,20 @@
     "currHp": 250,
     "maxHp": 250,
     "tempHp": 0,
+    "ac": 18,
     "currLegAct": 0,
     "maxLegAct": 0,
     "currLegRes": 0,
     "maxLegRes": 0,
     "hasReacharge": false,
     "reacharge": false,
-    "reaction": true
+    "reaction": true,
+    "strSave": 9,
+    "dexSave": -2,
+    "conSave": 11,
+    "intSave": -5,
+    "wisSave": 4,
+    "chaSave": -3
   },
   {
     "id": 3,
@@ -33,13 +47,20 @@
     "currHp": 777,
     "maxHp": 777,
     "tempHp": 0,
+    "ac": 22,
     "currLegAct": 3,
     "maxLegAct": 3,
     "currLegRes": 4,
     "maxLegRes": 4,
     "hasReacharge": true,
     "reacharge": true,
-    "reaction": true
+    "reaction": true,
+    "strSave": 10,
+    "dexSave": 10,
+    "conSave": 18,
+    "intSave": 5,
+    "wisSave": 13,
+    "chaSave": 16
   },
   {
     "id": 4,
@@ -47,12 +68,19 @@
     "currHp": 676,
     "maxHp": 676,
     "tempHp": 0,
+    "ac": 25,
     "currLegAct": 3,
     "maxLegAct": 3,
     "currLegRes": 3,
     "maxLegRes": 3,
     "hasReacharge": false,
     "reacharge": false,
-    "reaction": true
+    "reaction": true,
+    "strSave": 10,
+    "dexSave": 0,
+    "conSave": 10,
+    "intSave": 5,
+    "wisSave": 9,
+    "chaSave": 9
   }
 ]
