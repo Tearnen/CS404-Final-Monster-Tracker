@@ -1,7 +1,7 @@
 import React from 'react'
 import List from './List.jsx'
 import Card from './Card.jsx'
-import PageHeader from './Pageheader.jsx'
+import PageHeader from './PageHeader.jsx'
 import monsters from '../monsters.json'
 
 export default function App() {

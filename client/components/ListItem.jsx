@@ -10,7 +10,7 @@ const cardStyle = {
   padding: '5px',
   verticalAlign: 'bottom',
   cursor: 'pointer',
-  backgroundColor: '#808080'
+  backgroundColor: rgb(128, 128, 128, 0,5)
 }
 
 export default function ListItem( props) {

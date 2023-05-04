@@ -24320,7 +24320,7 @@
     padding: "5px",
     verticalAlign: "bottom",
     cursor: "pointer",
-    backgroundColor: "#808080"
+    backgroundColor: rgb(128, 128, 128, 0, 5)
   };
   function ListItem(props) {
     const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, currLegRes, onDetailsRequested } = props;
@@ -24484,11 +24484,10 @@
     return /* @__PURE__ */ import_react4.default.createElement("div", { className: "card", style: cardStyle2 }, /* @__PURE__ */ import_react4.default.createElement(Details, __spreadValues({}, props)));
   }
 
-  // client/components/Pageheader.jsx
+  // client/components/PageHeader.jsx
   var import_react5 = __toESM(require_react());
   var headerStyle = {
-    width: "100%",
-    color: "#808080"
+    width: "100%"
   };
   function PageHeader(props) {
     const { title, subTitle } = props;

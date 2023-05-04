@@ -1,8 +1,7 @@
 import React from 'react'
 
 const headerStyle = {
-  width: '100%',
-  color: '#808080',
+  width: '100%'
 }
 
 
