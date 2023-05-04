@@ -8,7 +8,12 @@ function createWindow () {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
-  })
+  }
+  )
+
+  win.maximize()
+
+  win.setMinimumSize(1080, 720)
 
   win.loadFile('public/index.html')
 }

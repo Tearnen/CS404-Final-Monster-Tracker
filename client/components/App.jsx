@@ -1,6 +1,7 @@
 import React from 'react'
 import List from './List.jsx'
-import Details from './Details.jsx'
+import Card from './Card.jsx'
+import PageHeader from './Pageheader.jsx'
 import monsters from '../monsters.json'
 
 export default function App() {
@@ -20,12 +21,13 @@ export default function App() {
 
   return (
     <div className="container">
-      <div className="row">
+      <PageHeader title="Monster Tracker" subTitle="Keep track of your monsters!" />
+      <div className="row" style={ {height: '100%'} }>
         <div className="col-8">
           <List onDetailsRequested={detailsRequested} />
         </div>
         <div className="col-4">
-            <Details {...currentMonster}/>
+            <Card {...currentMonster}/>
         </div>
       </div>
     </div>

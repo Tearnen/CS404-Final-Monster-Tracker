@@ -1,6 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const cardStyle = {
+  border: 'solid 1px black',
+  borderRadius: '10px',
+  boxShadow: 'black 3px 3px 6px',
+  transition: 'box-shadow 0.3s ease-in-out',
+  textAlign: 'center',
+  padding: '5px',
+  verticalAlign: 'bottom',
+  cursor: 'pointer',
+  backgroundColor: '#808080'
+}
+
 export default function ListItem( props) {
   const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, currLegRes, onDetailsRequested } = props
 
@@ -9,42 +21,42 @@ export default function ListItem( props) {
     onDetailsRequested(id)
   }
 
-  const [reaction, setReaction] = React.useState("")
+  const [react, setReact] = React.useState("")
   React.useEffect(() => {
-    if (reaction) {
-      setReaction("Available")
+    if (react) {
+      setReact("Available")
     } else {
-      setReaction("Used")
+      setReact("Used")
     }
-  }, [reaction])
+  }, [react])
 
   return (
-    <li className="list-group" onClick={handleClick}>
-      <div className="card">
+    <li className="list-group mb-2" onClick={handleClick}>
+      <div className="card" style={cardStyle}>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <div className="container">
             <div className="row">
-              <div className="col-3">
-                <p className="card-subtitle mb-2">Health and AC</p>
+              <div className="col-4">
+                <h6 className="card-subtitle mb-2">Health and AC</h6>
                 <p className="card-text">
                   {`HP: ${currHp}/${maxHp}`}<br />
                   {`Temp HP: ${tempHp}`}<br />
                   {`AC: ${ac}`}
                 </p>
               </div>
-              <div className="col-3">
-                <p className="card-subtitle mb-2">Saves</p>
+              <div className="col-4">
+                <h6 className="card-subtitle mb-2">Saves</h6>
                 <p className="card-text">
                   {`STR: ${strSave} DEX: ${dexSave}`}<br />
                   {`CON: ${conSave} INT: ${intSave}`}<br />
                   {`WIS: ${wisSave} CHA: ${chaSave}`}
                 </p>
               </div>
-              <div className="col-6">
-                <p className="card-subtitle mb-2">Limited Abilities</p>
+              <div className="col-4">
+                <h6 className="card-subtitle mb-2">Limited Abilities</h6>
                 <p className="card-text">
-                  {`Reaction: ${reaction}`}<br />
+                  {`React: ${react}`}<br />
                   {`Legendary Actions: ${currLegAct}`}<br />
                   {`Legendary Resistances: ${currLegRes}`}<br />
                 </p>

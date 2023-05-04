@@ -2396,9 +2396,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React6 = require_react();
+          var React8 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -4003,7 +4003,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React6.Children.forEach(props.children, function(child) {
+                  React8.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12450,7 +12450,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React6.Component().refs;
+          var emptyRefsObject = new React8.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24299,11 +24299,11 @@
   });
 
   // client/main.jsx
-  var import_react5 = __toESM(require_react());
+  var import_react7 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // client/components/App.jsx
-  var import_react4 = __toESM(require_react());
+  var import_react6 = __toESM(require_react());
 
   // client/components/List.jsx
   var import_react2 = __toESM(require_react());
@@ -24311,21 +24311,32 @@
   // client/components/ListItem.jsx
   var import_react = __toESM(require_react());
   var import_prop_types = __toESM(require_prop_types());
+  var cardStyle = {
+    border: "solid 1px black",
+    borderRadius: "10px",
+    boxShadow: "black 3px 3px 6px",
+    transition: "box-shadow 0.3s ease-in-out",
+    textAlign: "center",
+    padding: "5px",
+    verticalAlign: "bottom",
+    cursor: "pointer",
+    backgroundColor: "#808080"
+  };
   function ListItem(props) {
     const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, currLegRes, onDetailsRequested } = props;
     const handleClick = (event) => {
       event.preventDefault();
       onDetailsRequested(id);
     };
-    const [reaction, setReaction] = import_react.default.useState("");
+    const [react, setReact] = import_react.default.useState("");
     import_react.default.useEffect(() => {
-      if (reaction) {
-        setReaction("Available");
+      if (react) {
+        setReact("Available");
       } else {
-        setReaction("Used");
+        setReact("Used");
       }
-    }, [reaction]);
-    return /* @__PURE__ */ import_react.default.createElement("li", { className: "list-group", onClick: handleClick }, /* @__PURE__ */ import_react.default.createElement("div", { className: "card" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react.default.createElement("h5", { className: "card-title" }, name), /* @__PURE__ */ import_react.default.createElement("div", { className: "container" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "col-3" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "card-subtitle mb-2" }, "Health and AC"), /* @__PURE__ */ import_react.default.createElement("p", { className: "card-text" }, `HP: ${currHp}/${maxHp}`, /* @__PURE__ */ import_react.default.createElement("br", null), `Temp HP: ${tempHp}`, /* @__PURE__ */ import_react.default.createElement("br", null), `AC: ${ac}`)), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-3" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "card-subtitle mb-2" }, "Saves"), /* @__PURE__ */ import_react.default.createElement("p", { className: "card-text" }, `STR: ${strSave} DEX: ${dexSave}`, /* @__PURE__ */ import_react.default.createElement("br", null), `CON: ${conSave} INT: ${intSave}`, /* @__PURE__ */ import_react.default.createElement("br", null), `WIS: ${wisSave} CHA: ${chaSave}`)), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-6" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "card-subtitle mb-2" }, "Limited Abilities"), /* @__PURE__ */ import_react.default.createElement("p", { className: "card-text" }, `Reaction: ${reaction}`, /* @__PURE__ */ import_react.default.createElement("br", null), `Legendary Actions: ${currLegAct}`, /* @__PURE__ */ import_react.default.createElement("br", null), `Legendary Resistances: ${currLegRes}`, /* @__PURE__ */ import_react.default.createElement("br", null))))))));
+    }, [react]);
+    return /* @__PURE__ */ import_react.default.createElement("li", { className: "list-group mb-2", onClick: handleClick }, /* @__PURE__ */ import_react.default.createElement("div", { className: "card", style: cardStyle }, /* @__PURE__ */ import_react.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react.default.createElement("h5", { className: "card-title" }, name), /* @__PURE__ */ import_react.default.createElement("div", { className: "container" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "col-4" }, /* @__PURE__ */ import_react.default.createElement("h6", { className: "card-subtitle mb-2" }, "Health and AC"), /* @__PURE__ */ import_react.default.createElement("p", { className: "card-text" }, `HP: ${currHp}/${maxHp}`, /* @__PURE__ */ import_react.default.createElement("br", null), `Temp HP: ${tempHp}`, /* @__PURE__ */ import_react.default.createElement("br", null), `AC: ${ac}`)), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-4" }, /* @__PURE__ */ import_react.default.createElement("h6", { className: "card-subtitle mb-2" }, "Saves"), /* @__PURE__ */ import_react.default.createElement("p", { className: "card-text" }, `STR: ${strSave} DEX: ${dexSave}`, /* @__PURE__ */ import_react.default.createElement("br", null), `CON: ${conSave} INT: ${intSave}`, /* @__PURE__ */ import_react.default.createElement("br", null), `WIS: ${wisSave} CHA: ${chaSave}`)), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-4" }, /* @__PURE__ */ import_react.default.createElement("h6", { className: "card-subtitle mb-2" }, "Limited Abilities"), /* @__PURE__ */ import_react.default.createElement("p", { className: "card-text" }, `React: ${react}`, /* @__PURE__ */ import_react.default.createElement("br", null), `Legendary Actions: ${currLegAct}`, /* @__PURE__ */ import_react.default.createElement("br", null), `Legendary Resistances: ${currLegRes}`, /* @__PURE__ */ import_react.default.createElement("br", null))))))));
   }
   ListItem.propTypes = {
     onDetailsRequested: import_prop_types.default.func
@@ -24348,8 +24359,8 @@
       maxLegAct: 0,
       currLegRes: 0,
       maxLegRes: 0,
-      hasReacharge: false,
-      reacharge: false,
+      recharge: false,
+      hasRecharge: false,
       reaction: true,
       strSave: 0,
       dexSave: 1,
@@ -24369,8 +24380,8 @@
       maxLegAct: 0,
       currLegRes: 0,
       maxLegRes: 0,
-      hasReacharge: false,
-      reacharge: false,
+      recharge: false,
+      hasRecharge: false,
       reaction: true,
       strSave: 9,
       dexSave: -2,
@@ -24390,8 +24401,8 @@
       maxLegAct: 3,
       currLegRes: 4,
       maxLegRes: 4,
-      hasReacharge: true,
-      reacharge: true,
+      recharge: true,
+      hasRecharge: true,
       reaction: true,
       strSave: 10,
       dexSave: 10,
@@ -24411,8 +24422,8 @@
       maxLegAct: 3,
       currLegRes: 3,
       maxLegRes: 3,
-      hasReacharge: false,
-      reacharge: false,
+      recharge: false,
+      hasRecharge: false,
       reaction: true,
       strSave: 10,
       dexSave: 0,
@@ -24429,40 +24440,81 @@
     return /* @__PURE__ */ import_react2.default.createElement("ul", { className: "list-group" }, listItems);
   }
 
+  // client/components/Card.jsx
+  var import_react4 = __toESM(require_react());
+
   // client/components/Details.jsx
   var import_react3 = __toESM(require_react());
   function Details(props) {
+    const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, currLegRes } = props;
     const [reaction, setReaction] = import_react3.default.useState("");
+    const [recharge, setRecharge] = import_react3.default.useState("");
     import_react3.default.useEffect(() => {
-      if (props.reaction) {
+      if (reaction) {
         setReaction("Available");
       } else {
         setReaction("Used");
       }
-    }, [reaction]);
-    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "card" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "card-title" }, props.name), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-subtitle mb-2" }, "Health and AC"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-text" }, `HP: ${props.currHp}/${props.maxHp}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `Temp HP: ${props.tempHp}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `AC: ${props.ac}`)), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-subtitle mb-2" }, "Saves"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-text" }, `STR: ${props.strSave} DEX: ${props.dexSave}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `CON: ${props.conSave} INT: ${props.intSave}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `WIS: ${props.wisSave} CHA: ${props.chaSave}`)), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-subtitle mb-2" }, "Limited Abilities"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-text" }, `Reaction: ${props.reaction}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `Legendary Actions: ${props.currLegAct}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `Legendary Resistances: ${props.currLegRes}`, /* @__PURE__ */ import_react3.default.createElement("br", null))))));
+      if (recharge) {
+        setRecharge("Available");
+      } else {
+        setRecharge("Used");
+      }
+    }, [reaction, recharge]);
+    if (!id) {
+      return null;
+    } else {
+      return /* @__PURE__ */ import_react3.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "card-title" }, name), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h6", { className: "card-subtitle mb-2" }, "Health and AC"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-text" }, `HP: ${currHp}/${maxHp}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `Temp HP: ${tempHp}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `AC: ${ac}`)), /* @__PURE__ */ import_react3.default.createElement("br", null), /* @__PURE__ */ import_react3.default.createElement("br", null), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h6", { className: "card-subtitle mb-2" }, "Saves"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-text" }, `STR: ${strSave} DEX: ${dexSave}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `CON: ${conSave} INT: ${intSave}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `WIS: ${wisSave} CHA: ${chaSave}`)), /* @__PURE__ */ import_react3.default.createElement("br", null), /* @__PURE__ */ import_react3.default.createElement("br", null), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h6", { className: "card-subtitle mb-2" }, "Limited Abilities"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "card-text" }, `Reaction: ${reaction}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `Legendary Actions: ${currLegAct}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `Legendary Resistances: ${currLegRes}`, /* @__PURE__ */ import_react3.default.createElement("br", null), `Recharge: ${recharge}`))));
+    }
+  }
+
+  // client/components/Card.jsx
+  var cardStyle2 = {
+    border: "solid 1px black",
+    borderRadius: "10px",
+    boxShadow: "black 3px 3px 6px",
+    transition: "box-shadow 0.3s ease-in-out",
+    textAlign: "center",
+    padding: "5px",
+    verticalAlign: "bottom",
+    backgroundColor: "#808080",
+    height: "100%"
+  };
+  function Card(props) {
+    return /* @__PURE__ */ import_react4.default.createElement("div", { className: "card", style: cardStyle2 }, /* @__PURE__ */ import_react4.default.createElement(Details, __spreadValues({}, props)));
+  }
+
+  // client/components/Pageheader.jsx
+  var import_react5 = __toESM(require_react());
+  var headerStyle = {
+    width: "100%",
+    color: "#808080"
+  };
+  function PageHeader(props) {
+    const { title, subTitle } = props;
+    return /* @__PURE__ */ import_react5.default.createElement("div", { className: "pb-2 mt-4 mb-2 border-bottom", style: headerStyle }, /* @__PURE__ */ import_react5.default.createElement("h1", null, title), subTitle);
   }
 
   // client/components/App.jsx
   function App() {
-    const [currentMonsterId, setCurrentMonsterId] = import_react4.default.useState("");
+    const [currentMonsterId, setCurrentMonsterId] = import_react6.default.useState("");
     const detailsRequested = (key) => {
       setCurrentMonsterId(key);
     };
-    const [currentMonster, setCurrentMonster] = import_react4.default.useState(null);
-    import_react4.default.useEffect(() => {
+    const [currentMonster, setCurrentMonster] = import_react6.default.useState(null);
+    import_react6.default.useEffect(() => {
       if (currentMonsterId) {
         const monster = monsters_default.find((monster2) => monster2.id === currentMonsterId);
         setCurrentMonster(monster);
       }
     }, [currentMonsterId]);
-    return /* @__PURE__ */ import_react4.default.createElement("div", { className: "container" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "col-8" }, /* @__PURE__ */ import_react4.default.createElement(List, { onDetailsRequested: detailsRequested })), /* @__PURE__ */ import_react4.default.createElement("div", { className: "col-4" }, /* @__PURE__ */ import_react4.default.createElement(Details, __spreadValues({}, currentMonster)))));
+    return /* @__PURE__ */ import_react6.default.createElement("div", { className: "container" }, /* @__PURE__ */ import_react6.default.createElement(PageHeader, { title: "Monster Tracker", subTitle: "Keep track of your monsters!" }), /* @__PURE__ */ import_react6.default.createElement("div", { className: "row", style: { height: "100%" } }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "col-8" }, /* @__PURE__ */ import_react6.default.createElement(List, { onDetailsRequested: detailsRequested })), /* @__PURE__ */ import_react6.default.createElement("div", { className: "col-4" }, /* @__PURE__ */ import_react6.default.createElement(Card, __spreadValues({}, currentMonster)))));
   }
 
   // client/main.jsx
   var root = (0, import_client.createRoot)(document.getElementById("root"));
   root.render(
-    /* @__PURE__ */ import_react5.default.createElement(App, null)
+    /* @__PURE__ */ import_react7.default.createElement(App, null)
   );
 })();
 /*! Bundled license information:
