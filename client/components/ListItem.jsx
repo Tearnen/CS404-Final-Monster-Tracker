@@ -11,7 +11,24 @@ const cardStyle = {
   verticalAlign: 'bottom',
   cursor: 'pointer',
   backgroundColor: 'rgb(256, 256, 256, 0.25)',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  fontFamily: '"Times New Roman", Times, serif'
+}
+
+const headerStyle = {
+  color: 'maroon',
+  fontWeight: 'bold',
+  fontFamily: '"Times New Roman", Times, serif',
+  fontSize: '1.5rem',
+  display: 'inline-block'
+}
+
+const subTitleStyle = {
+  color: 'maroon',
+  fontWeight: 'bold',
+  fontFamily: '"Times New Roman", Times, serif',
+  fontSize: '1.25rem',
+  display: 'inline-block'
 }
 
 export default function ListItem( props) {
@@ -35,11 +52,11 @@ export default function ListItem( props) {
     <li className="list-group mb-2" onClick={handleClick}>
       <div className="card" style={cardStyle}>
         <div className="card-body">
-          <h4 className="card-title">{name}</h4>
+          <h4 className="card-title" style={headerStyle}>{name}</h4>
           <div className="container">
             <div className="row">
               <div className="col-4">
-                <h5 className="card-subtitle mb-2">Health and AC</h5>
+                <h5 className="card-subtitle mb-2" style={subTitleStyle}>Health and AC</h5>
                 <p className="card-text">
                   {`HP: ${currHp}/${maxHp}`}<br />
                   {`Temp HP: ${tempHp}`}<br />
@@ -47,7 +64,7 @@ export default function ListItem( props) {
                 </p>
               </div>
               <div className="col-4">
-                <h5 className="card-subtitle mb-2">Saves</h5>
+                <h5 className="card-subtitle mb-2" style={subTitleStyle}>Saves</h5>
                 <p className="card-text">
                   {`STR: ${strSave} DEX: ${dexSave}`}<br />
                   {`CON: ${conSave} INT: ${intSave}`}<br />
@@ -55,7 +72,7 @@ export default function ListItem( props) {
                 </p>
               </div>
               <div className="col-4">
-                <h5 className="card-subtitle mb-2">Limited Abilities</h5>
+                <h5 className="card-subtitle mb-2" style={subTitleStyle}>Limited Abilities</h5>
                 <p className="card-text">
                   {`Reaction: ${react}`}<br />
                   {`Legendary Actions: ${currLegAct}`}<br />

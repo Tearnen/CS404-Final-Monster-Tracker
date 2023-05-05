@@ -10,7 +10,9 @@ const cardStyle = {
   verticalAlign: 'bottom',
   height: '100%',
   backgroundColor: 'rgb(256, 256, 256, 0.25)',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  fontFamily: '"Times New Roman", Times, serif',
+  fontSize: '1.25rem'
 }
 
 export default function Card(props) {

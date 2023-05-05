@@ -10,7 +10,24 @@ const cboxStyle = {
   borderStyle: 'solid',
   borderRadius: '5px',
   backgroundColor: 'white',
-  verticalAlign: 'middle'
+  verticalAlign: 'middle',
+}
+
+const headerStyle = {
+  color: 'maroon',
+  fontWeight: 'bold',
+  fontFamily: '"Times New Roman", Times, serif',
+  fontSize: '2.25rem',
+  display: 'inline-block',
+  borderBottom: '2px solid black'
+}
+
+const subTitleStyle = {
+  color: 'maroon',
+  fontWeight: 'bold',
+  fontFamily: '"Times New Roman", Times, serif',
+  fontSize: '1.75rem',
+  display: 'inline-block'
 }
 
 export default function Details(props) {
@@ -89,11 +106,11 @@ React.useEffect(() => {
     )
     }else {
     return(
-      <div className="card-body">
-        <h4 className="card-title">{name}</h4> <br />
+      <div className="card-body" style={{width: '100%'}}>
+        <h4 className="card-title" style={headerStyle}>{name}</h4> <br />
         <div className="container">
           <div className="row">
-            <h5 className="card-subtitle mb-2">Health and AC</h5>
+            <h5 className="card-subtitle mb-2" style={subTitleStyle}>Health and AC</h5>
             <p className="card-text">
               {`HP: ${currHp}/${maxHp}`}<br />
               {`Temp HP: ${tempHp}`}<br />
@@ -103,7 +120,7 @@ React.useEffect(() => {
           <br />
           <br />
           <div className="row">
-            <h5 className="card-subtitle mb-2">Saves</h5>
+            <h5 className="card-subtitle mb-2" style={subTitleStyle}>Saves</h5>
             <p className="card-text">
               {`STR: ${strSave} DEX: ${dexSave}`}<br />
               {`CON: ${conSave} INT: ${intSave}`}<br />
@@ -113,7 +130,7 @@ React.useEffect(() => {
           <br />
           <br />
           <div className="row">
-            <h5 className="card-subtitle mb-2">Limited Abilities</h5>
+            <h5 className="card-subtitle mb-2" style={subTitleStyle}>Limited Abilities</h5>
             <p className="card-text">
               Reaction <input style={cboxStyle} type="checkbox" checked={!reaction} onChange={handleReact} /> <br />
               {legAct}
