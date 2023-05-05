@@ -1,7 +1,7 @@
 {
   "name": "finalproject",
   "version": "1.0.0",
-  "description": "",
+  "description": "A 'Monster Tracker' app for the final project of CS404.",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",

@@ -1,3 +1,7 @@
+/*
+  @author Tiernan "Tearnen" Meyer
+*/
+
 import React from 'react'
 import Details from './Details.jsx'
 

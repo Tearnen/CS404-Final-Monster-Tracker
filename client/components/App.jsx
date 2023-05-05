@@ -1,3 +1,7 @@
+/*
+  @author Tiernan "Tearnen" Meyer
+*/
+
 import React from 'react'
 import List from './List.jsx'
 import Card from './Card.jsx'
