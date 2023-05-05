@@ -13,7 +13,7 @@ function createWindow () {
 
   win.maximize()
 
-  win.setMinimumSize(1080, 720)
+  win.setMinimumSize(1280, 800)
 
   win.loadFile('public/index.html')
 }

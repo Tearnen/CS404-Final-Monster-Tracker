@@ -1,23 +1,105 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
+const cboxStyle = {
+  width: '20px',
+  height: '20px',
+  margin: '0px 5px 0px 5px',
+  borderColor: 'red',
+  borderWidth: '2px',
+  borderStyle: 'solid',
+  borderRadius: '5px',
+  backgroundColor: 'white',
+  verticalAlign: 'middle'
+}
 
 export default function Details(props) {
-  const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, currLegRes } = props
+  const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, maxLegAct, currLegRes, maxLegRes, hasRecharge, onReactUpdate, onRechargeUpdate, onLegActUpdate, onLegResUpdate, reaction, recharge } = props
 
-  const [reaction, setReaction] = React.useState("")
-  const [recharge, setRecharge] = React.useState("")
+  const [react, setReact] = React.useState("")
+  const [rech, setRech] = React.useState("")
   React.useEffect(() => {
     if (reaction) {
-      setReaction("Available")
+      setReact("Available")
     } else {
-      setReaction("Used")
+      setReact("Used")
     }
 
     if (recharge) {
-      setRecharge("Available")
+      setRech("Available")
+    } else if (!hasRecharge) {
+      setRech("N/A")
     } else {
-      setRecharge("Used")
+      setRech("Used")
     }
-  }, [reaction, recharge])
+  }, [reaction])
+
+  const handleReact = (event) => {
+    event.preventDefault()
+    onReactUpdate()
+  }
+
+ const handleLegAct = (checked) => (event) => {
+    event.preventDefault()
+    onLegActUpdate(checked)
+  }
+
+  const [legAct, setLegAct] = React.useState([])
+  React.useEffect(() => {
+    var legAct = []
+    if (maxLegAct != 0) {
+      legAct.push('Legendary Actions: ')
+
+      for (var i = 0; i < maxLegAct; i++) {
+        if (i < currLegAct) {
+          legAct.push(<input style={cboxStyle} type="checkbox" key={'cbox' + i} checked={false} onChange={handleLegAct(false)} />)
+        } else {
+          legAct.push(<input style={cboxStyle} type="checkbox" key={'cbox' + i} checked={true} onChange={handleLegAct(true)} />)
+        }
+      }
+      legAct.push(<br key={'br'} />)
+    }
+    setLegAct(legAct)
+}, [maxLegAct, currLegAct])
+
+const handleLegRes = (checked) => (event) => {
+  event.preventDefault()
+  onLegResUpdate(checked)
+}
+
+const [legRes, setLegRes] = React.useState([])
+React.useEffect(() => {
+  var legRes = []
+  if (maxLegRes != 0) {
+    legRes.push('Legendary Actions: ')
+
+    for (var i = 0; i < maxLegRes; i++) {
+      if (i < currLegRes) {
+        legRes.push(<input style={cboxStyle} type="checkbox" key={'cbox' + i} checked={false} onChange={handleLegRes(false)} />)
+      } else {
+        legRes.push(<input style={cboxStyle} type="checkbox" key={'cbox' + i} checked={true} onChange={handleLegRes(true)} />)
+      }
+    }
+    legRes.push(<br key={'br'} />)
+  }
+  setLegRes(legRes)
+}, [maxLegRes, currLegRes])
+
+const handleRecharge = (event) => {
+  event.preventDefault()
+  onRechargeUpdate()
+}
+
+const [reacharge, setRecharge] = React.useState([])
+React.useEffect(() => {
+  var rech = []
+  if (hasRecharge) {
+    rech.push('Recharge: ')
+    rech.push(<input style={cboxStyle} type="checkbox" key={'cbox'} checked={!recharge} onChange={handleRecharge} />)
+    rech.push(<br key={'br'} />)
+  }
+  setRecharge(rech)
+}, [hasRecharge, recharge])
 
   if (!id) {
     return (
@@ -26,10 +108,10 @@ export default function Details(props) {
     }else {
     return(
       <div className="card-body">
-        <h5 className="card-title">{name}</h5>
+        <h4 className="card-title">{name}</h4> <br />
         <div className="container">
           <div className="row">
-            <h6 className="card-subtitle mb-2">Health and AC</h6>
+            <h5 className="card-subtitle mb-2">Health and AC</h5>
             <p className="card-text">
               {`HP: ${currHp}/${maxHp}`}<br />
               {`Temp HP: ${tempHp}`}<br />
@@ -39,7 +121,7 @@ export default function Details(props) {
           <br />
           <br />
           <div className="row">
-            <h6 className="card-subtitle mb-2">Saves</h6>
+            <h5 className="card-subtitle mb-2">Saves</h5>
             <p className="card-text">
               {`STR: ${strSave} DEX: ${dexSave}`}<br />
               {`CON: ${conSave} INT: ${intSave}`}<br />
@@ -49,16 +131,30 @@ export default function Details(props) {
           <br />
           <br />
           <div className="row">
-            <h6 className="card-subtitle mb-2">Limited Abilities</h6>
+            <h5 className="card-subtitle mb-2">Limited Abilities</h5>
             <p className="card-text">
-              {`Reaction: ${reaction}`}<br />
-              {`Legendary Actions: ${currLegAct}`}<br />
-              {`Legendary Resistances: ${currLegRes}`}<br />
-              {`Recharge: ${recharge}`}
+              Reaction <input style={cboxStyle} type="checkbox" checked={!reaction} onChange={handleReact} /> <br />
+              {legAct}
+              {legRes}
+              {reacharge}
             </p>
           </div>
         </div>
       </div>
     )
   }
+}
+
+Details.propTypes = {
+  onReactUpdate: PropTypes.func,
+  onRechargeUpdate: PropTypes.func,
+  onLegActUpdate: PropTypes.func,
+  onLegResUpdate: PropTypes.func
+}
+
+Details.defaultProps = {
+  onReactUpdate: () => {},
+  onRechargeUpdate: () => {},
+  onLegActUpdate: () => {},
+  onLegResUpdate: () => {}
 }

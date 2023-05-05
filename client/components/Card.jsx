@@ -6,11 +6,11 @@ const cardStyle = {
   borderRadius: '10px',
   boxShadow: 'black 3px 3px 6px',
   transition: 'box-shadow 0.3s ease-in-out',
-  textAlign: 'center',
   padding: '5px',
   verticalAlign: 'bottom',
-  backgroundColor: '#808080',
-  height: '100%'
+  height: '100%',
+  backgroundColor: 'rgb(256, 256, 256, 0.25)',
+  fontWeight: 'bold'
 }
 
 export default function Card(props) {
