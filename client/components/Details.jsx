@@ -74,7 +74,7 @@ const [legRes, setLegRes] = React.useState([])
 React.useEffect(() => {
   var legRes = []
   if (maxLegRes != 0) {
-    legRes.push('Legendary Actions: ')
+    legRes.push('Legendary Resistances: ')
 
     for (var i = 0; i < maxLegRes; i++) {
       if (i < currLegRes) {
