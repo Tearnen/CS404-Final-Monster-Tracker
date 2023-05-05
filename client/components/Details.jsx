@@ -14,25 +14,7 @@ const cboxStyle = {
 }
 
 export default function Details(props) {
-  const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, maxLegAct, currLegRes, maxLegRes, hasRecharge, onReactUpdate, onRechargeUpdate, onLegActUpdate, onLegResUpdate, reaction, recharge } = props
-
-  const [react, setReact] = React.useState("")
-  const [rech, setRech] = React.useState("")
-  React.useEffect(() => {
-    if (reaction) {
-      setReact("Available")
-    } else {
-      setReact("Used")
-    }
-
-    if (recharge) {
-      setRech("Available")
-    } else if (!hasRecharge) {
-      setRech("N/A")
-    } else {
-      setRech("Used")
-    }
-  }, [reaction])
+  const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, maxLegAct, currLegRes, maxLegRes, hasRecharge, onReactUpdate, onRechargeUpdate, onLegActUpdate, onLegResUpdate, reaction, recharge, refresh } = props
 
   const handleReact = (event) => {
     event.preventDefault()
@@ -60,7 +42,7 @@ export default function Details(props) {
       legAct.push(<br key={'br'} />)
     }
     setLegAct(legAct)
-}, [maxLegAct, currLegAct])
+}, [maxLegAct, currLegAct, refresh])
 
 const handleLegRes = (checked) => (event) => {
   event.preventDefault()
@@ -83,7 +65,7 @@ React.useEffect(() => {
     legRes.push(<br key={'br'} />)
   }
   setLegRes(legRes)
-}, [maxLegRes, currLegRes])
+}, [maxLegRes, currLegRes, refresh])
 
 const handleRecharge = (event) => {
   event.preventDefault()
@@ -99,7 +81,7 @@ React.useEffect(() => {
     rech.push(<br key={'br'} />)
   }
   setRecharge(rech)
-}, [hasRecharge, recharge])
+}, [hasRecharge, recharge, refresh])
 
   if (!id) {
     return (

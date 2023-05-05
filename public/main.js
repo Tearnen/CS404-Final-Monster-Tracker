@@ -24463,23 +24463,7 @@
     verticalAlign: "middle"
   };
   function Details(props) {
-    const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, maxLegAct, currLegRes, maxLegRes, hasRecharge, onReactUpdate, onRechargeUpdate, onLegActUpdate, onLegResUpdate, reaction, recharge } = props;
-    const [react, setReact] = import_react3.default.useState("");
-    const [rech, setRech] = import_react3.default.useState("");
-    import_react3.default.useEffect(() => {
-      if (reaction) {
-        setReact("Available");
-      } else {
-        setReact("Used");
-      }
-      if (recharge) {
-        setRech("Available");
-      } else if (!hasRecharge) {
-        setRech("N/A");
-      } else {
-        setRech("Used");
-      }
-    }, [reaction]);
+    const { id, name, currHp, maxHp, tempHp, ac, strSave, dexSave, conSave, intSave, wisSave, chaSave, currLegAct, maxLegAct, currLegRes, maxLegRes, hasRecharge, onReactUpdate, onRechargeUpdate, onLegActUpdate, onLegResUpdate, reaction, recharge, refresh } = props;
     const handleReact = (event) => {
       event.preventDefault();
       onReactUpdate();
@@ -24503,7 +24487,7 @@
         legAct2.push(/* @__PURE__ */ import_react3.default.createElement("br", { key: "br" }));
       }
       setLegAct(legAct2);
-    }, [maxLegAct, currLegAct]);
+    }, [maxLegAct, currLegAct, refresh]);
     const handleLegRes = (checked) => (event) => {
       event.preventDefault();
       onLegResUpdate(checked);
@@ -24523,21 +24507,21 @@
         legRes2.push(/* @__PURE__ */ import_react3.default.createElement("br", { key: "br" }));
       }
       setLegRes(legRes2);
-    }, [maxLegRes, currLegRes]);
+    }, [maxLegRes, currLegRes, refresh]);
     const handleRecharge = (event) => {
       event.preventDefault();
       onRechargeUpdate();
     };
     const [reacharge, setRecharge] = import_react3.default.useState([]);
     import_react3.default.useEffect(() => {
-      var rech2 = [];
+      var rech = [];
       if (hasRecharge) {
-        rech2.push("Recharge: ");
-        rech2.push(/* @__PURE__ */ import_react3.default.createElement("input", { style: cboxStyle, type: "checkbox", key: "cbox", checked: !recharge, onChange: handleRecharge }));
-        rech2.push(/* @__PURE__ */ import_react3.default.createElement("br", { key: "br" }));
+        rech.push("Recharge: ");
+        rech.push(/* @__PURE__ */ import_react3.default.createElement("input", { style: cboxStyle, type: "checkbox", key: "cbox", checked: !recharge, onChange: handleRecharge }));
+        rech.push(/* @__PURE__ */ import_react3.default.createElement("br", { key: "br" }));
       }
-      setRecharge(rech2);
-    }, [hasRecharge, recharge]);
+      setRecharge(rech);
+    }, [hasRecharge, recharge, refresh]);
     if (!id) {
       return null;
     } else {
@@ -24583,7 +24567,9 @@
     width: "100%",
     backgroundColor: "maroon",
     color: "white",
-    padding: "15px"
+    padding: "15px",
+    borderRadius: "10px",
+    textAlign: "center"
   };
   function PageHeader(props) {
     const { title, subTitle } = props;

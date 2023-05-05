@@ -4,7 +4,9 @@ const headerStyle = {
   width: '100%',
   backgroundColor: 'maroon',
   color: 'white',
-  padding: '15px'
+  padding: '15px',
+  borderRadius: '10px',
+  textAlign: 'center'
 }
 
 
