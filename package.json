@@ -9,7 +9,9 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "client": "esbuild --bundle --minify --target=es6 --outdir=public client/main.jsx",
-    "client:dev": "esbuild --watch --bundle --sourcemap --target=es6 --outdir=public client/main.jsx"
+    "client:dev": "esbuild --watch --bundle --sourcemap --target=es6 --outdir=public client/main.jsx",
+    "clean": "rm public/*.map public/main.js public/main.css"
+
   },
   "author": "Tiernan Meyer",
   "license": "MIT",
